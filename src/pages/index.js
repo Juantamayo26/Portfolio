@@ -128,7 +128,7 @@ const links = [
 // markup
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
+    <main className="hola" style={pageStyles}>
       <title>Home Page</title>
       <h1 style={headingStyles}>
         Congratulations
