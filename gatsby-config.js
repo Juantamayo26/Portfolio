@@ -4,9 +4,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-postcss",
-    "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -20,17 +18,25 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: `${__dirname}/src/images/`,
       },
       __key: "images",
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: "gatsby-plugin-purgecss",
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        printRejected: false,
+        develop: false,
+        tailwind: true,
       },
-      __key: "pages",
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/,
+        },
+      },
     },
   ],
 };

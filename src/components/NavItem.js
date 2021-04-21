@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react";
+import { Link } from "gatsby";
 
-const NavItem = props => {
+const NavItem = (props) => {
   return (
     <Link
       to={props.to}
@@ -10,8 +10,7 @@ const NavItem = props => {
     >
       <p>{props.children}</p>
     </Link>
-  )
-}
+  );
+};
 
-export default NavItem
-
+export default NavItem;

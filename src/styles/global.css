@@ -1,0 +1,8 @@
+@tailwind base;
+
+body, html {
+  @apply bg-black;
+}
+
+@tailwind components;
+@tailwind utilities
