@@ -1,3 +1,7 @@
+require('dotenv').config()
+
+const githubAPIKey = process.env.GITHUB_API_KEY
+
 module.exports = {
   siteMetadata: {
     title: "Juan Tamayo",
@@ -5,6 +9,43 @@ module.exports = {
   plugins: [
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
+    {
+      resolve: "gatsby-source-github-api",
+      options: {
+        token: githubAPIKey,
+        graphQLQuery: `
+          query {
+            viewer {
+              repositories(last: 20, orderBy: {field: UPDATED_AT, direction: DESC}, privacy: PUBLIC) {
+                totalCount
+                nodes {
+                  url
+                  name
+                  description
+                  stargazers {
+                    totalCount
+                  }
+                  readme: object(expression: "main:README.md") {
+                    ... on Blob {
+                      text
+                    }
+                  }
+                }
+              }
+              avatarUrl(size: 250)
+              bio
+              createdAt
+              email
+              location
+              login
+              name
+              url
+            }
+          }
+        `,
+      },
+    },
+
     {
       resolve: "gatsby-plugin-manifest",
       options: {

@@ -10,6 +10,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(function ({ addUtilities }) {
       const newUtilities = {
         ".boxshadow-3d-right": {

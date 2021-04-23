@@ -16,6 +16,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
+
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -33,7 +34,6 @@ exports.createPages = async ({ actions, graphql }) => {
   const projects = result.data.allMarkdownRemark.edges;
 
   const projectList = path.resolve("./src/templates/project-list.jsx");
-  console.log(projectList)
 
   const { paginate } = require("gatsby-awesome-pagination");
 
@@ -45,7 +45,6 @@ exports.createPages = async ({ actions, graphql }) => {
     component: projectList,
   });
 
-  //createPage({});
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
