@@ -1,6 +1,6 @@
-require('dotenv').config()
+require("dotenv").config();
 
-const githubAPIKey = process.env.GITHUB_API_KEY
+const githubAPIKey = process.env.GITHUB_API_KEY || "development";
 
 module.exports = {
   siteMetadata: {
