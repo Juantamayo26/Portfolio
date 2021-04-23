@@ -10,10 +10,10 @@ const Navigation = () => {
       </Link>
 
       <div className="flex items-end justify-around w-11/12 mt-2 flex-nowrap">
-        <NavItem to="/photos/" className="first boxshadow-3d-left">
+        <NavItem to="/resume/" className="first boxshadow-3d-left">
           RESUME
         </NavItem>
-        <NavItem to="/videos/" className="boxshadow-3d-left">
+        <NavItem to="/algorithms/" className="boxshadow-3d-left">
           ALGORITHMS
         </NavItem>
 
@@ -22,7 +22,7 @@ const Navigation = () => {
         </Link>
 
         <NavItem
-          to="/code_art/"
+          to="/projects/"
           className="boxshadow-3d-left md:boxshadow-3d-right"
         >
           PROJECTS
