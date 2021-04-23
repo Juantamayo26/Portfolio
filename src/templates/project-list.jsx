@@ -23,7 +23,7 @@ const ProjectList = ({ data, pageContext }) => {
                     <Img
                       className = "w-full h-64 mb-2 picture-border-sm-2"
                       fluid={node.frontmatter.image.childImageSharp.fluid}
-                      title={"HOLA"}
+                      title={node.frontmatter.title}
                       alt={node.frontmatter.title}
                     />
                 </div>
