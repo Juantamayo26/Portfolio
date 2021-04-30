@@ -31,20 +31,19 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const projects = result.data.allMarkdownRemark.edges;
+  const courses = result.data.allMarkdownRemark.edges;
 
-  const projectList = path.resolve("./src/templates/project-list.jsx");
+  const courseList = path.resolve("./src/templates/courses-list.js");
 
   const { paginate } = require("gatsby-awesome-pagination");
 
   paginate({
     createPage,
-    items: projects,
+    items: courses,
     itemsPerPage: 10,
-    pathPrefix: "/projects",
-    component: projectList,
+    pathPrefix: "/courses",
+    component: courseList,
   });
-
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

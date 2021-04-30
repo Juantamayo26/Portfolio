@@ -13,8 +13,8 @@ const Navigation = () => {
         <NavItem to="/resume/" className="first boxshadow-3d-left">
           RESUME
         </NavItem>
-        <NavItem to="/algorithms/" className="boxshadow-3d-left">
-          ALGORITHMS
+        <NavItem to="/courses/" className="boxshadow-3d-left">
+          COURSES
         </NavItem>
 
         <Link to="/" className="hidden md:flex md:w-4/12 md:mr-6">
@@ -28,7 +28,7 @@ const Navigation = () => {
           PROJECTS
         </NavItem>
         <NavItem
-          to="/about/"
+          to="/"
           className="last boxshadow-3d-left md:boxshadow-3d-right"
         >
           ABOUT
