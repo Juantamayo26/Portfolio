@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
-const ProjectList = ({ data, pageContext }) => {
+const ProjectList = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
@@ -20,12 +20,18 @@ const ProjectList = ({ data, pageContext }) => {
                   <h3 className="w-full mb-2 text-2xl font-light text-left font-manrope text-themeBlue">
                     {node.frontmatter.title}
                   </h3>
+                  <a
+                    href={node.frontmatter.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Img
-                      className = "w-full h-64 mb-2 picture-border-sm-2"
+                      className="w-full h-64 mb-2 picture-border-sm-2"
                       fluid={node.frontmatter.image.childImageSharp.fluid}
                       title={node.frontmatter.title}
                       alt={node.frontmatter.title}
                     />
+                  </a>
                 </div>
               </div>
             );
@@ -47,9 +53,10 @@ export const PostListQuery = graphql`
           id
           frontmatter {
             title
+            link
             image {
               childImageSharp {
-                fluid(maxWidth: 450) {
+                fluid(maxWidth: 550) {
                   ...GatsbyImageSharpFluid
                 }
               }
