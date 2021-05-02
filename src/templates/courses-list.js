@@ -4,7 +4,9 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
 const ProjectList = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allMarkdownRemark.edges.filter((i) => {
+    return i.node.fields.slug.startsWith("/courses");
+  });
 
   return (
     <Layout>
@@ -43,8 +45,13 @@ const ProjectList = ({ data }) => {
 };
 
 export const PostListQuery = graphql`
-  query PostListQuery {
-    allMarkdownRemark {
+  query PostListQuery ($skip: Int!, $limit: Int!){
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      skip: $skip 
+      limit: $limit 
+
+    ){
       edges {
         node {
           fields {

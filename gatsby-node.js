@@ -16,7 +16,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -31,7 +30,10 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const courses = result.data.allMarkdownRemark.edges;
+  //const courses = result.data.allMarkdownRemark.edges
+  const courses = result.data.allMarkdownRemark.edges.filter((i) => {
+    return i.node.fields.slug.startsWith("/courses");
+  });
 
   const courseList = path.resolve("./src/templates/courses-list.js");
 
