@@ -30,10 +30,7 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  //const courses = result.data.allMarkdownRemark.edges
-  const courses = result.data.allMarkdownRemark.edges.filter((i) => {
-    return i.node.fields.slug.startsWith("/courses");
-  });
+  const courses = result.data.allMarkdownRemark.edges
 
   const courseList = path.resolve("./src/templates/courses-list.js");
 
