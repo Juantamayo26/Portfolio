@@ -30,9 +30,15 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const courses = result.data.allMarkdownRemark.edges
+  const courses = result.data.allMarkdownRemark.edges.filter((i) => {
+    return i.node.fields.slug.startsWith("/courses");
+  });
+  const projects = result.data.allMarkdownRemark.edges.filter((i) => {
+    return i.node.fields.slug.startsWith("/projects");
+  });
 
   const courseList = path.resolve("./src/templates/courses-list.js");
+  const projecList = path.resolve("./src/templates/projects-list.js");
 
   const { paginate } = require("gatsby-awesome-pagination");
 
@@ -42,6 +48,14 @@ exports.createPages = async ({ actions, graphql }) => {
     itemsPerPage: 10,
     pathPrefix: "/courses",
     component: courseList,
+  });
+
+  paginate({
+    createPage,
+    items: projects,
+    itemsPerPage: 10,
+    pathPrefix: "/projects",
+    component: projecList,
   });
 };
 
