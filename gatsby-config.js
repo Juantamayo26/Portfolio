@@ -96,6 +96,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "pdf",
+        path: `${__dirname}/static`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-purgecss",
       options: {
         printRejected: false,
