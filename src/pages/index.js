@@ -1,10 +1,9 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { graphql } from "gatsby";
+import Header from "../components/Header"
+import WorkExperiences from '../components/WorkExperiences'
 
-const AboutPage = ({ data }) => {
-  const user = data.githubData.data.viewer;
-  console.log(user.avatarUrl);
+const AboutPage = () => {
   return (
     <Layout>
       <div className="p-12">
@@ -15,7 +14,7 @@ const AboutPage = ({ data }) => {
               much the programming specially the algorithms.
             </p>
             <p className="w-full mt-3 sm:mt-5">
-              I study Computer Engineering at Universidad Tecnologica de Pereira
+              I study Computer Engineering at Technological University of Pereira 
               (UTP).
             </p>
             <p className="w-full mt-3 sm:mt-5">
@@ -23,43 +22,26 @@ const AboutPage = ({ data }) => {
               participate on competencies of codeforces and leetcode👨‍💻.
             </p>
             <p className="w-full mt-3 mb-4 sm:mt-5">
-              Outside of computer science, I enjoy hiking, playing with my puppy
-              🐕 and play videogames 🎮.
+              Outside of computer science, I enjoy hiking and play videogames 🎮.
             </p>
           </div>
-          <div className="flex justify-center w-full prose md:w-1/2">
-            <div className="flex flex-wrap justify-center h-full p-5 mb-1 w-25 picture-border-sm-1">
-              <h1 className="mb-5">{user.name}</h1>
-              <img
-                className="picture-border-sm-2"
-                src={user.avatarUrl}
-                alt=""
-              />
-              <p>{user.bio}</p>
-            </div>
+
+          <div className="w-full md:w-1/2">
+            <Header variant="1">My Experience</Header>
+            <WorkExperiences />
           </div>
+
+          <a
+            href="mailto:juancyepest@gmail.com"
+            className="flex items-center justify-center mx-auto mt-8 flex-nowrap hover:text-themeBlue hover:border-corners duration-300"
+          >
+            juancyepest@gmail.com
+          </a>
+
         </div>
       </div>
     </Layout>
   );
 };
-
-export const GithubApi = graphql`
-  query GithubApi {
-    githubData {
-      data {
-        viewer {
-          avatarUrl
-          bio
-          email
-          location
-          login
-          name
-          url
-        }
-      }
-    }
-  }
-`;
 
 export default AboutPage;

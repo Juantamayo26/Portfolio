@@ -3,7 +3,7 @@ import Header from "./Header";
 import Img from "gatsby-image";
 
 const CodeArtPreview = ({ title, image, type, description }) => {
-  if (type % 2 == 0) {
+  if (type % 2 === 0) {
     return (
       <div
         className={
