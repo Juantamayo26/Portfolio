@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       {children}
       <SocialMedia />
       <footer className="flex justify-center">
-        &copy; {new Date().getFullYear()} Juan Tamayo 👋
+        &copy; {new Date().getFullYear()} Juan Tamayo <span role="img">👋</span>
       </footer>
     </div>
   );

@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
-const ProjectList = ({ data }) => {
+const CourseList = ({ data }) => {
   const posts = data.allMarkdownRemark.edges.filter((i) => {
     return i.node.fields.slug.startsWith("/courses");
   });
@@ -75,4 +75,4 @@ export const PostListQuery = graphql`
   }
 `;
 
-export default ProjectList;
+export default CourseList;

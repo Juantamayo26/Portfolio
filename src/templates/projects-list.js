@@ -14,12 +14,13 @@ const ProjectList = ({ data }) => {
       <div className="flex flex-wrap items-center justify-center w-full max-w-6xl mx-auto mt-10 mb-10">
         {projects.map(({ node }) => {
           return (
-            <Project
-              title={node.frontmatter.title}
-              image={node.frontmatter.image.childImageSharp.fluid}
-              type={countRef.current++}
-              description={node.html}
-            />
+              <Project
+                title={node.frontmatter.title}
+                image={node.frontmatter.image.childImageSharp.fluid}
+                type={countRef.current++}
+                description={node.html}
+                key={node.id}
+              />
           );
         })}
       </div>

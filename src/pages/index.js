@@ -19,10 +19,10 @@ const AboutPage = () => {
             </p>
             <p className="w-full mt-3 sm:mt-5">
               In my spare time I like learn algorithm from cp-algorithm and
-              participate on competencies of codeforces and leetcode👨‍💻.
+              participate on competencies of codeforces and leetcode <span>👨‍💻</span>.
             </p>
             <p className="w-full mt-3 mb-4 sm:mt-5">
-              Outside of computer science, I enjoy hiking and play videogames 🎮.
+              Outside of computer science, I enjoy hiking and play videogames <span>🎮</span>.
             </p>
           </div>
 

@@ -15,7 +15,7 @@ const Experience = ({ variant, header, date, body }) => {
         </p>
       </div>
     )
-  }else if(variant%2 != 0){
+  }else if(variant%2 !== 0){
     return (
       <div className="group w-full timeline-right px-5 text-right font-manrope">
         <div className="flex items-start pt-4 justify-end">

@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Img from "gatsby-image";
 
-const CodeArtPreview = ({ title, image, type, description }) => {
+const Project = ({ title, image, type, description }) => {
   if (type % 2 === 0) {
     return (
       <div
@@ -65,4 +65,4 @@ const CodeArtPreview = ({ title, image, type, description }) => {
   }
 };
 
-export default CodeArtPreview;
+export default Project;
