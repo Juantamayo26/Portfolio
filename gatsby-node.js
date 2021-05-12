@@ -53,7 +53,7 @@ exports.createPages = async ({ actions, graphql }) => {
   paginate({
     createPage,
     items: projects,
-    itemsPerPage: 10,
+    itemsPerPage: 20,
     pathPrefix: "/projects",
     component: projecList,
   });
